@@ -12,11 +12,20 @@ class BaseService
      * @param int $type
      * @return array
      */
-    protected function responseStatus($message, $type = self::ERROR, $data = [])
+    protected function responseSuccess($message = '', $data = [])
     {
         return [
-            'type' => $type,
-            'message' => $message,
+            'type' => self::SUCCESS,
+            'message' => !empty($message) ? $message : 'Action success.',
+            'data' => $data
+        ];
+    }
+
+    protected function responseFailed($message = '',  $data = [])
+    {
+        return [
+            'type' => self::ERROR,
+            'message' => !empty($message) ? $message : 'Action failed.',
             'data' => $data
         ];
     }

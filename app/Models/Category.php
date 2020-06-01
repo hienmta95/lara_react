@@ -9,4 +9,9 @@ class Category extends BaseModel
         'title',
         'description'
     ];
+
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post');
+    }
 }

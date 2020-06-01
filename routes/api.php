@@ -14,17 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(
-    [
-        'namespace' => 'Auth',
-    ],
+Route::group(['namespace' => 'Auth'],
     function () {
-        Route::post('/login', 'LoginController@login')->name('login');
-        Route::post('/register', 'RegisterController@register')->name('register');
-        Route::post('/email/verify', 'VerificationController@verify')->name('verification.verify');
+        Route::post('/login', 'AuthController@login')->name('login');
+        Route::post('/register', 'AuthController@register')->name('register');
+        // Route::post('/email/verify', 'VerificationController@verify')->name('verification.verify');
     }
 );
 
-Route::middleware('jwt-auth')->get('/users', function (Request $request) {
-    return response()->json(['ok' => 'users list']);
-});
+Route::group(
+    [
+        'namespace' => 'Backend',
+        'prefix' => 'admin',
+        'middleware' => 'auth:api'
+    ],
+    function () {
+        Route::apiResource('categories', 'CategoryController');
+        Route::apiResource('posts', 'PostController');
+        Route::apiResource('users', 'UserController');
+    }
+);

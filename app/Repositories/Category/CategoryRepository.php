@@ -12,9 +12,11 @@ class CategoryRepository extends EloquentRepository implements CategoryRepositor
         return Category::class;
     }
 
-    public function getLatestVideos($limit = 10, $sortBy = 'desc')
+    public function getAll($sortBy = 'DESC')
     {
-        return 'test';
+        return $this->model->with(['posts'])
+            ->orderBy('id', $sortBy)
+            ->get();
     }
 
 }

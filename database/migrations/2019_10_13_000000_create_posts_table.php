@@ -15,6 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id()->autoIncrement();
+            $table->integer('category_id');
             $table->string('title')->nullable();
             $table->text('body')->nullable();
             $table->string('image')->nullable();

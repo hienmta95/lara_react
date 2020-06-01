@@ -27,12 +27,12 @@ class RegisterService extends BaseService
         $request['is_verify'] = 1;
         $request['verify_token'] = \App\Models\User::generateVerifyToken();
         $user = $this->userRepository->create($request);
-        if (!$user) return $this->responseStatus('Register user failed.');
+        if (!$user) return $this->responseFailed('Register user failed.');
 
         // Send mail to verify
         $this->sendMail($user);
 
-        return $this->responseStatus('Register ok.', self::SUCCESS, $user);
+        return $this->responseSuccess('Register ok.', $user);
     }
 
     /**

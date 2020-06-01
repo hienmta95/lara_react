@@ -45,9 +45,9 @@ abstract class EloquentRepository implements RepositoryInterface
      *
      * @return Collection|static[]
      */
-    public function getAll()
+    public function getAll($sortBy = 'DESC')
     {
-        return $this->model->all();
+        return $this->model->orderBy('id', $sortBy)->get();
     }
 
     /**

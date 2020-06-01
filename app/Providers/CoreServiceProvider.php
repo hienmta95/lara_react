@@ -16,5 +16,9 @@ class CoreServiceProvider extends ServiceProvider
             'App\Repositories\User\UserRepositoryInterface',
             'App\Repositories\User\UserRepository'
         );
+        $this->app->bind(
+            'App\Repositories\Post\PostRepositoryInterface',
+            'App\Repositories\Post\PostRepository'
+        );
     }
 }

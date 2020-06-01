@@ -2,8 +2,12 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Error;
+use Exception;
 use Throwable;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -50,6 +54,24 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        if ($exception instanceof AuthorizationException) {
+            return res(403, !empty($exception->getMessage()) ? $exception->getMessage() : 'Forbidden!');
+        }
+
+        if ($exception instanceof ModelNotFoundException) {
+            return res(404, !empty($exception->getMessage()) ? $exception->getMessage() : 'Not Found!');
+        }
+
+        if ($exception instanceof Error) {
+            return res(500, !empty($exception->getMessage()) ? $exception->getMessage() : 'An error has occurred!');
+        }
+
+        $statusCode = $exception->getStatusCode();
+        if ($statusCode == 404) {
+            return res(404, !empty($exception->getMessage()) ? $exception->getMessage() : 'Not Found!');
+        }
+
+        return res($statusCode, !empty($exception->getMessage()) ? $exception->getMessage() : 'An error has occurred!');
         return parent::render($request, $exception);
     }
 }
