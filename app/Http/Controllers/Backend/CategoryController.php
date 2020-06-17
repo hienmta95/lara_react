@@ -8,7 +8,7 @@ use App\Services\Category\CategoryService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class CategoryController extends Controller
+class CategoryssController extends Controller
 {
     private $categoryService;
 
