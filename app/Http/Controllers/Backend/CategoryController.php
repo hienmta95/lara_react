@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\CategoryStoreRequest;
+use App\Services\Category\CategoryService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
-use App\Services\Category\CategoryService;
-use App\Http\Requests\Backend\CategoryStoreRequest;
 
 class CategoryController extends Controller
 {
