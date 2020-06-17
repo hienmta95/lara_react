@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return 'This is Laravel - React.';
-});
+Route::get(
+    '/',
+    function () {
+        return 'This is Laravel - React.';
+    }
+);

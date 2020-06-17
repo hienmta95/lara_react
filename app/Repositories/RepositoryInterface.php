@@ -6,20 +6,23 @@ interface RepositoryInterface
 {
     /**
      * Get all
+     *
      * @return mixed
      */
     public function getAll();
 
     /**
      * Get one
-     * @param $id
+     *
+     * @param  $id
      * @return mixed
      */
     public function find($id);
 
     /**
      * Create
-     * @param array $attributes
+     *
+     * @param  array $attributes
      * @return mixed
      */
     public function create(array $attributes);
@@ -28,21 +31,24 @@ interface RepositoryInterface
 
     /**
      * Update
-     * @param $id
-     * @param array $attributes
+     *
+     * @param  $id
+     * @param  array $attributes
      * @return mixed
      */
     public function update($id, array $attributes);
 
     /**
      * Delete
-     * @param $id
+     *
+     * @param  $id
      * @return mixed
      */
     public function delete($id);
 
     /**
      * Get model.
+     *
      * @return string
      */
     public function getModel();

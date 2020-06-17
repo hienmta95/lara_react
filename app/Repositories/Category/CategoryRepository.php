@@ -18,5 +18,4 @@ class CategoryRepository extends EloquentRepository implements CategoryRepositor
             ->orderBy('id', $sortBy)
             ->get();
     }
-
 }

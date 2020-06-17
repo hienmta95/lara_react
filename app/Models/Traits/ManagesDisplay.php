@@ -21,7 +21,7 @@ trait ManagesDisplay
     }
 
     /**
-     * @param $query
+     * @param  $query
      * @return mixed
      */
     public function scopeDisplay($query)
@@ -31,7 +31,7 @@ trait ManagesDisplay
     }
 
     /**
-     * @param $query
+     * @param  $query
      * @return mixed
      */
     public function scopeNotDisplay($query)

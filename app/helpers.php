@@ -7,12 +7,15 @@ if (!function_exists('res')) {
             $data = $message['data'];
             $message = $message['message'];
         }
-        return response()->json([
+        return response()->json(
+            [
             'success' => in_array($code, [200, 201]) ? true : false,
             'code' => $code,
             'message' => $message,
             'data' => $data
-        ], 200);
+            ],
+            200
+        );
     }
 }
 

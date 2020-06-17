@@ -23,8 +23,9 @@ class CategoryService extends BaseService
     public function createOne($params)
     {
         $data = $this->repository->create($params);
-        if (!empty($data))
+        if (!empty($data)) {
             return $this->responseSuccess('Create category ok.', $data);
+        }
         return $this->responseFailed();
     }
 
@@ -40,17 +41,18 @@ class CategoryService extends BaseService
     public function updateOne($id, $params)
     {
         $data = $this->repository->update($id, $params);
-        if ($data)
+        if ($data) {
             return $this->responseSuccess('', $data);
+        }
         return $this->responseFailed();
     }
 
     public function deleteOne($id)
     {
         $data = $this->repository->delete($id);
-        if ($data)
+        if ($data) {
             return $this->responseSuccess('', $data);
+        }
         return $this->responseFailed();
     }
-
 }

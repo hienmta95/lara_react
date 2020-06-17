@@ -9,6 +9,7 @@ trait Enumerate
 {
     /**
      * Setting for enum fields
+     *
      * @var array
      */
     public static function enum()
@@ -20,7 +21,7 @@ trait Enumerate
      * Handle dynamic method calls into the model.
      * This is override for calling dynamic enum methods
      *
-     * @param  string  $method
+     * @param  string $method
      * @param  array  $parameters
      * @return mixed
      */
@@ -42,7 +43,9 @@ trait Enumerate
 
     private function getEnumCheckFunc($method)
     {
-        if (strpos($method, 'is') !== 0) return null;
+        if (strpos($method, 'is') !== 0) {
+            return null;
+        }
         $enumKey = Str::snake(substr($method, 2));
         foreach (self::enum() as $field => $mapping) {
             if (isset($mapping[$enumKey])) {
@@ -59,7 +62,9 @@ trait Enumerate
 
     private function getEnumKeyFunc($method)
     {
-        if (strpos($method, 'enum') !== 0) return null;
+        if (strpos($method, 'enum') !== 0) {
+            return null;
+        }
         return Str::snake(substr($method, 4));
     }
 
@@ -70,6 +75,7 @@ trait Enumerate
 
     /**
      * Get the key from value of an enum
+     *
      * @return mixed
      */
     public static function enumKey($field, $value)
@@ -79,6 +85,7 @@ trait Enumerate
 
     /**
      * Get the value from key of an enum
+     *
      * @return mixed
      */
     public static function enumVal($key)
@@ -88,6 +95,7 @@ trait Enumerate
 
     /**
      * Get the value mapping of the enum field
+     *
      * @return mixed
      */
     public static function enumSet($field)
@@ -97,6 +105,7 @@ trait Enumerate
 
     /**
      * Get the keys array of an enum
+     *
      * @return mixed
      */
     public static function enumKeys($field)
@@ -106,6 +115,7 @@ trait Enumerate
 
     /**
      * Get the values array of an enum
+     *
      * @return mixed
      */
     public static function enumVals($field)
@@ -115,6 +125,7 @@ trait Enumerate
 
     /**
      * Get the values array of an enum
+     *
      * @return mixed
      */
     public function toEnumKey($field)
