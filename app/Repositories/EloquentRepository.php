@@ -16,6 +16,7 @@ abstract class EloquentRepository implements RepositoryInterface
 
     /**
      * EloquentRepository constructor.
+     *
      * @throws BindingResolutionException
      */
     public function __construct()
@@ -25,12 +26,14 @@ abstract class EloquentRepository implements RepositoryInterface
 
     /**
      * Get model.
+     *
      * @return string
      */
     abstract public function getModel();
 
     /**
      * Set model.
+     *
      * @throws BindingResolutionException
      */
     public function setModel()
@@ -52,7 +55,8 @@ abstract class EloquentRepository implements RepositoryInterface
 
     /**
      * Get one
-     * @param $id
+     *
+     * @param  $id
      * @return mixed
      */
     public function find($id)
@@ -66,7 +70,8 @@ abstract class EloquentRepository implements RepositoryInterface
 
     /**
      * Get one
-     * @param $id
+     *
+     * @param  $id
      * @return mixed
      */
     public function findWithTrashed($id)
@@ -80,7 +85,8 @@ abstract class EloquentRepository implements RepositoryInterface
 
     /**
      * Get one
-     * @param $id
+     *
+     * @param  $id
      * @return mixed or false
      */
     public function findOrFail($id)
@@ -94,7 +100,8 @@ abstract class EloquentRepository implements RepositoryInterface
 
     /**
      * Create
-     * @param array $attributes
+     *
+     * @param  array $attributes
      * @return mixed
      */
     public function create(array $attributes)
@@ -104,7 +111,8 @@ abstract class EloquentRepository implements RepositoryInterface
 
     /**
      * Create many
-     * @param array $attributes
+     *
+     * @param  array $attributes
      * @return mixed
      */
     public function createMany(array $arrayAttributes)
@@ -114,7 +122,8 @@ abstract class EloquentRepository implements RepositoryInterface
 
     /**
      * Save (to use on Eloquent Model)
-     * @param array $attributes
+     *
+     * @param  array $attributes
      * @return mixed
      */
     public function save(array $attributes = [])
@@ -128,8 +137,9 @@ abstract class EloquentRepository implements RepositoryInterface
 
     /**
      * Update
-     * @param $model
-     * @param array $attributes
+     *
+     * @param  $model
+     * @param  array $attributes
      * @return bool|mixed
      */
     public function update($model, array $attributes)
@@ -145,7 +155,7 @@ abstract class EloquentRepository implements RepositoryInterface
     /**
      * Delete
      *
-     * @param $model
+     * @param  $model
      * @return bool
      * @throws \Exception
      */
@@ -162,7 +172,7 @@ abstract class EloquentRepository implements RepositoryInterface
     /**
      * Make a new instance of the entity to query on.
      *
-     * @param array $with
+     * @param  array $with
      * @return Builder|Model
      */
     public function make(array $with = [])
@@ -173,8 +183,8 @@ abstract class EloquentRepository implements RepositoryInterface
     /**
      * Return all results that have a required relationship.
      *
-     * @param string $relation
-     * @param array $with
+     * @param  string $relation
+     * @param  array  $with
      * @return Builder[]|Collection
      */
     public function has($relation, array $with = [])
@@ -186,9 +196,9 @@ abstract class EloquentRepository implements RepositoryInterface
     /**
      * Find a single entity by key value.
      *
-     * @param string $key
-     * @param string $value
-     * @param array $with
+     * @param  string $key
+     * @param  string $value
+     * @param  array  $with
      * @return Builder|Model|object|null
      */
     public function getFirstBy($key, $value, array $with = [])
@@ -199,9 +209,9 @@ abstract class EloquentRepository implements RepositoryInterface
     /**
      * Find many entities by key value.
      *
-     * @param string $key
-     * @param string $value
-     * @param array $with
+     * @param  string $key
+     * @param  string $value
+     * @param  array  $with
      * @return Builder[]|Collection
      */
     public function getManyBy($key, $value, array $with = [])
@@ -219,6 +229,7 @@ abstract class EloquentRepository implements RepositoryInterface
 
     /**
      * Cast the parameter to Model
+     *
      * @param  mixed $model the parameter
      * @return Model
      */

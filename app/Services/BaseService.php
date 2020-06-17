@@ -8,8 +8,8 @@ class BaseService
     const SUCCESS = 1;
 
     /**
-     * @param $message
-     * @param int $type
+     * @param  $message
+     * @param  int $type
      * @return array
      */
     protected function responseSuccess($message = '', $data = [])
@@ -21,7 +21,7 @@ class BaseService
         ];
     }
 
-    protected function responseFailed($message = '',  $data = [])
+    protected function responseFailed($message = '', $data = [])
     {
         return [
             'type' => self::ERROR,

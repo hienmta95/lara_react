@@ -18,7 +18,7 @@ class FormRequest extends IlluminateRequest
      * Handle a failed validation attempt.
      * Override to control the 422 redirection upon validation failure
      *
-     * @param  \Illuminate\Contracts\Validation\Validator  $validator
+     * @param  \Illuminate\Contracts\Validation\Validator $validator
      * @return void
      *
      * @throws \Illuminate\Validation\ValidationException

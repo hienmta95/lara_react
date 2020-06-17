@@ -18,5 +18,4 @@ class PostRepository extends EloquentRepository implements PostRepositoryInterfa
             ->orderBy('id', $sortBy)
             ->get();
     }
-
 }

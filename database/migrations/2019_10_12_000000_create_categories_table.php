@@ -1,4 +1,5 @@
 <?php
+namespace database\migrations;
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,13 +14,16 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id()->autoIncrement();
-            $table->integer('parent_id')->nullable();
-            $table->string('title')->nullable();
-            $table->text('description')->nullable();
-            $table->timestamps();
-        });
+        Schema::create(
+            'categories',
+            function (Blueprint $table) {
+                $table->id()->autoIncrement();
+                $table->integer('parent_id')->nullable();
+                $table->string('title')->nullable();
+                $table->text('description')->nullable();
+                $table->timestamps();
+            }
+        );
     }
 
     /**

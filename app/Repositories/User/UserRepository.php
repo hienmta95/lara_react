@@ -23,5 +23,4 @@ class UserRepository extends EloquentRepository implements UserRepositoryInterfa
             ->isVerified()
             ->first();
     }
-
 }

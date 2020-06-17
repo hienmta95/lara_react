@@ -20,7 +20,7 @@ jobs:
     - name: php_codesniffer
       run: composer global require "squizlabs/php_codesniffer=*"
     - name: Php cs check
-      run: ~/.composer/vendor/bin/phpcs --extensions=php app routes config database
+      run: ~/.composer/vendor/bin/phpcs --standard=PSR2 --extensions=php app routes config database
     - name: Generate key
       run: php artisan key:generate
     - name: Directory Permissions

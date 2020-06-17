@@ -9,5 +9,4 @@ interface UserRepositoryInterface extends RepositoryInterface
     public function getList($limit = 10, $sortBy = 'desc');
 
     public function findLoginUser($param);
-
 }

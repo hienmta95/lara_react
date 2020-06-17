@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 trait ForBaseModel
 {
-  //--------- SCOPES ---------//
+    //--------- SCOPES ---------//
     /**
-     * @param $query
+     * @param  $query
      * @return mixed
      */
     public function scopeActive($query)
@@ -16,15 +16,18 @@ trait ForBaseModel
         if ($this->forceDeleting) {
             return $query;
         }
-        return $query->where(function ($query) {
-            $query->whereNull($this->table . '.' . $this->getDeletedAtColumn());
-        });
+        return $query->where(
+            function ($query) {
+                $query->whereNull($this->table . '.' . $this->getDeletedAtColumn());
+            }
+        );
     }
 
 
     //--------- STATIC ULTILITIES ---------//
     /**
      * Get the table name statically
+     *
      * @return string
      */
     public static function table()
