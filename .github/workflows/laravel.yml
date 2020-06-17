@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ master ]
 
-cache:
-  paths:
-    - composer
-
 jobs:
   first-hiennd:
 
