@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Services\User\LoginService;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Services\User\RegisterService;
-use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\RegisterRequest;
+use App\Services\User\LoginService;
+use App\Services\User\RegisterService;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {

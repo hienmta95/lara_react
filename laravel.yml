@@ -7,10 +7,10 @@ on:
     branches: [ master ]
 
 jobs:
-  laravel-tests:
+  first-hiennd:
 
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v2
     - name: Copy .env
